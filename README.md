@@ -8,25 +8,13 @@ Bansi Patel, Nishi Shah
 
 ## What This Repository Contains
 
-This repository contains all scripts, results, and sample data for our independent replication and extension of the [FuseFL framework](https://arxiv.org/abs/2403.10507) (Widyasari et al., 2024).
+This repository contains the implementation, evaluation scripts, and experimental artifacts for the replication and extension of the [FuseFL framework](https://arxiv.org/abs/2403.10507) (Widyasari et al., 2024).
 
-We replicate FuseFL's fault localization evaluation on the Refactory dataset using GPT-3.5, then extend it to four open-source models via the Groq inference API: Llama 3.3 70B, Llama 3.1 8B, Qwen3 32B, and GPT-OSS 20B. We also introduce an iterative refinement framework that improves the quality of generated fault explanations through self-critique.
-
----
-
-## Key Results
-
-| Model | Top-1 | Top-1% |
-|---|---|---|
-| Ochiai SBFL (baseline) | 157 | 48.5% |
-| LLM Baseline (Wu et al.) | 150 | 46.3% |
-| FuseFL GPT-3.5 (replicated) | 197 | 60.8% |
-| **Llama 3.3 70B (Groq)** | **218** | **67.3%** |
-| Llama 3.1 8B (Groq) | 214 | 66.0% |
-| **Qwen3 32B (Groq)** | **218** | **67.3%** |
-| GPT-OSS 20B (Groq) | 186 | 57.4% |
-
-Three of four Groq-hosted open-source models exceed FuseFL (GPT-3.5) at Top-1. Llama 3.3 70B's advantage is statistically significant (p = 0.046).
+We reproduce FuseFL results using GPT-3.5 and extend to multiple LLMs via Groq API:
+- Llama 3.3 70B
+- Llama 3.1 8B
+- Qwen3 32B
+- GPT-OSS 20B
 
 ---
 
@@ -49,15 +37,14 @@ fusefl-replication-extension/
 │   ├── results_extended_summary.txt     # Extended results summary
 │   ├── topk_comparison.png              # Top-K bar chart (replication)
 │   ├── improvement_comparison.png       # Improvement chart (replication)
-│   ├── topk_comparison_extended.png     # Top-K bar chart (all models)
-│   ├── improvement_comparison_extended.png
+│   ├── topk_extended.png                # Top-K bar chart (all models)
+│   ├── improvement_extended.png
 │   ├── ensemble_voting.png
 │   ├── error_type_analysis.png
 │   └── explanation_complexity.png
 │
 └── dataset/
-    └── sample/
-        └── question_1/          # Sample of 33 faulty Python submissions from Refactory
+    └── README.md   
 ```
 
 ---
@@ -71,7 +58,7 @@ Install dependencies:
 pip install scipy numpy pandas matplotlib groq
 ```
 
-**For the Groq extension**, you need a free Groq API key from [console.groq.com](https://console.groq.com). Set it as an environment variable — never paste it directly into the script:
+**For the Groq extension**, you need a free Groq API key from [console.groq.com](https://console.groq.com). Set it as an environment variable.
 
 On Mac/Linux:
 ```bash
@@ -104,12 +91,6 @@ Requires `GROQ_API_KEY` to be set. Runs Llama 3.3 70B, Llama 3.1 8B, Qwen3 32B, 
 python scripts/compare_models.py
 ```
 Produces the Top-K bar chart, improvement chart, and Cohen's d heatmap.
-
----
-
-## Dataset
-
-The sample in `dataset/sample/question_1/` contains 33 faulty Python submissions from the [Refactory dataset](https://github.com/githubhuyang/refactory) (Hu et al., 2019). The full dataset (1,783 files) is available at that link.
 
 ---
 
