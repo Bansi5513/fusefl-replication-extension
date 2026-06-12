@@ -47,7 +47,7 @@ from scipy import stats
 # ============================================================
 #  PATH CONFIGURATION
 # ============================================================
-BASE = "C:/Users/Bansi patel/Desktop/FuseFL"  # adjust if running elsewhere
+BASE = os.path.dirname(os.path.abspath(__file__))
 # ============================================================
 
 QUESTIONS = ['question_1', 'question_2', 'question_3', 'question_4', 'question_5']
