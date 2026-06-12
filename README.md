@@ -44,18 +44,16 @@ fusefl-replication-extension/
 │   └── evaluate_extended.py    # Extended evaluation with additional metrics
 │
 ├── results/
-│   ├── results_summary.txt                    # Replication results (GPT-3.5 + baselines)
-│   ├── multi_model_comparison.txt             # Full multi-model Top-K results
-│   ├── results_extended_summary.txt           # Extended results summary
-│   ├── replication/
-│   │   ├── topk_comparison.png
-│   │   └── improvement_comparison.png
-│   └── extension/
-│       ├── topk_comparison.png
-│       ├── improvement_comparison.png
-│       ├── ensemble_voting.png
-│       ├── error_type_analysis.png
-│       └── explanation_complexity.png
+│   ├── results_summary.txt              # Replication results (GPT-3.5 + baselines)
+│   ├── multi_model_comparison.txt       # Full multi-model Top-K results
+│   ├── results_extended_summary.txt     # Extended results summary
+│   ├── topk_comparison.png              # Top-K bar chart (replication)
+│   ├── improvement_comparison.png       # Improvement chart (replication)
+│   ├── topk_comparison_extended.png     # Top-K bar chart (all models)
+│   ├── improvement_comparison_extended.png
+│   ├── ensemble_voting.png
+│   ├── error_type_analysis.png
+│   └── explanation_complexity.png
 │
 └── dataset/
     └── sample/
