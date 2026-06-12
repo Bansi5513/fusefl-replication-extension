@@ -2,8 +2,7 @@
 
 **Replication and Extension of FuseFL: Demystifying Faulty Code with LLM Step-by-Step Reasoning for Explainable Fault Localization**
 
-Bansi Patel, Nishi Shah — California State University, Long Beach  
-Published at ICSOFT 2026
+Bansi Patel, Nishi Shah
 
 ---
 
@@ -125,13 +124,3 @@ This work replicates and extends:
 The pre-stored FuseFL prompt files and GPT-3.5 result files used as baselines are from the original FuseFL replication package.
 
 ---
-
-## Citation
-
-If you use this replication or the scripts in your work, please cite:
-
-```
-Patel, B., Shah, N. (2026). Replication and Extension of FuseFL: Demystifying Faulty 
-Code with LLM Step-by-Step Reasoning for Explainable Fault Localization. 
-Proceedings of ICSOFT 2026.
-```
