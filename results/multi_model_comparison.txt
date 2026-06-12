@@ -1,0 +1,37 @@
+=================================================================
+  FuseFL MULTI-MODEL COMPARISON REPORT
+=================================================================
+
+Dataset : 324 files | 621 buggy line entries
+Models  : 7 evaluated
+
+TOP-K FAULT LOCALIZATION RESULTS
+  Model                                       Top-1        %   Top-2   Top-3
+  ────────────────────────────────────────────────────────────────────
+  Ochiai (SBFL)                                 157    48.5%     205     248
+  Baseline (Wu et al.)                          150    46.3%     190     216
+  FuseFL (GPT-3.5)                              197    60.8%     240     260
+  Llama 3.3 70B (Groq)                          218    67.3%     263     276
+  Llama 3.1 8B (Groq)                           214    66.0%     251     268
+  Qwen3 32B (Groq)                              218    67.3%     251     260
+  GPT-OSS 20B (Groq)                            186    57.4%     230     251
+
+IMPROVEMENT AT TOP-1
+  Model                                       vs Ochiai   vs FuseFL-GPT
+  ──────────────────────────────────────────────────────────────────────
+  Baseline (Wu et al.)                           +-4.5%          -23.9%
+  FuseFL (GPT-3.5)                               +25.5%           +0.0%
+  Llama 3.3 70B (Groq)                           +38.9%          +10.7%
+  Llama 3.1 8B (Groq)                            +36.3%           +8.6%
+  Qwen3 32B (Groq)                               +38.9%          +10.7%
+  GPT-OSS 20B (Groq)                             +18.5%           -5.6%
+
+STATISTICAL SIGNIFICANCE vs FuseFL-GPT (Top-1)
+  Model                                         p-value   Sig@5%  Effect
+  ──────────────────────────────────────────────────────────────────────
+  Ochiai (SBFL)                                  0.0001      YES  Small (d=0.250)
+  Baseline (Wu et al.)                           0.0001      YES  Small (d=0.294)
+  Llama 3.3 70B (Groq)                           0.0458      YES  Negligible (d=0.135)
+  Llama 3.1 8B (Groq)                            0.0935       no  Negligible (d=0.109)
+  Qwen3 32B (Groq)                               0.0575       no  Negligible (d=0.135)
+  GPT-OSS 20B (Groq)                             0.2880       no  Negligible (d=0.069)

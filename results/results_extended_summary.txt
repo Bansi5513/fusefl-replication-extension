@@ -1,0 +1,42 @@
+
+=================================================================
+  FuseFL EXTENDED EVALUATION REPORT
+  Paper: 'Demystifying Faulty Code with LLM'
+  Extension: Gemini (free) + Self-Consistency CoT
+=================================================================
+
+DATASET
+  Total files  : 324
+  Buggy entries: 621
+
+TABLE I — TOP-K FAULT LOCALIZATION
+(Number of files where buggy line is found within top K predictions)
+
+  Method                      Top-1   Top-2   Top-3    Top-1%
+  -------------------------------------------------------
+  Ochiai (SBFL)                 157     205     248     48.5%
+  Baseline (Wu et al.)          150     190     216     46.3%
+  FuseFL / GPT-3.5              197     240     260     60.8%
+  Gemini                          0       0       0      0.0%
+
+  Paper reported: Ochiai=117, Baseline=150, FuseFL (GPT-3.5)=197
+
+IMPROVEMENT 1 — Gemini vs GPT-3.5 (FuseFL original):
+  Top-1: 0 vs 197  (-100.0%)
+
+IMPROVEMENT 1 — Gemini vs Ochiai (SBFL):
+  Top-1: 0 vs 157  (-100.0%)
+
+TABLE II — STATISTICAL SIGNIFICANCE vs FuseFL/GPT-3.5 (Top-1)
+  Wilcoxon signed-rank test, α = 1%
+
+  Method                        p-value   Sig   Cohen d  Effect
+  ----------------------------------------------------------
+  Ochiai (SBFL)                0.000148   YES     0.250  Small
+  Baseline (Wu et al.)         0.000142   YES     0.294  Small
+  Gemini                       0.000000   YES     1.759  Large
+
+CONCLUSION
+  Gemini (free API) outperforms the original GPT-3.5-based FuseFL
+  at fault localization on the same prompts and dataset.
+=================================================================

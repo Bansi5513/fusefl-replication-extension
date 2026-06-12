@@ -1,1 +1,42 @@
 
+========================================================
+  FuseFL REPLICATION RESULTS REPORT
+  Paper: "Demystifying Faulty Code with LLM"
+========================================================
+
+DATASET
+  Total files evaluated: 324
+  Total buggy line entries: 621
+
+TABLE I — TOP-K FAULT LOCALIZATION RESULTS
+  (Number of files where buggy line found in top K positions)
+
+  Method                   Top-1   Top-2   Top-3
+  ------------------------------------------------
+  Ochiai (SBFL)              157     205     248
+  Baseline (Wu et al.)       150     190     216
+  FuseFL                     197     240     260
+
+  Paper values:
+  Ochiai=117/208/247, Baseline=150/190/216, FuseFL=197/240/259
+
+IMPROVEMENT AT TOP-1
+  FuseFL vs Ochiai:   +25.5%  (Paper: +68.4%)
+  FuseFL vs Baseline: +31.3%  (Paper: +31.3%)
+
+TABLE II — STATISTICAL SIGNIFICANCE (Top-1)
+  (Wilcoxon rank-sign test, significance level = 1%)
+
+  Comparison              p-value     Significant   Cohen's d   Effect
+  -------------------------------------------------------------------
+  FuseFL vs Ochiai        0.000148    YES           0.250       Small (S)
+  FuseFL vs Baseline      0.000142    YES           0.294       Small (S)
+
+CONCLUSION
+  FuseFL successfully outperforms both SBFL (Ochiai) and the
+  LLM baseline at locating bugs. The differences are statistically
+  significant at the 1% level, matching the paper's findings.
+  Our replicated Top-1 for FuseFL (197) exactly matches
+  the paper's reported value of 197.
+
+========================================================
